@@ -1,10 +1,24 @@
 package com.example.pprospsvo.model;
 
+import jakarta.persistence.*;
+
+@Entity
 public class Address {
 
+    @Id
+    @GeneratedValue
+    private int id;
     private int postalCode;
     private String city;
     private String street;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public int getPostalCode() {
         return postalCode;

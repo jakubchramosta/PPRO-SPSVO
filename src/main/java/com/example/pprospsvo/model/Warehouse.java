@@ -1,14 +1,32 @@
 package com.example.pprospsvo.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import jakarta.persistence.*;
+
 import java.util.ArrayList;
 import java.util.List;
 
+@Entity
 public class Warehouse {
 
+    @Id
+    @GeneratedValue
+    private int id;
     private double capacity;
     private double fullness;
+    @OneToOne
     private Address address;
-    private List<CollectionTrip> collectionTripList = new ArrayList<>();
+    @OneToMany(mappedBy = "warehouse")
+    @JsonBackReference
+    private List<Vehicle> vehicleList = new ArrayList<>();
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public double getCapacity() {
         return capacity;
@@ -34,11 +52,11 @@ public class Warehouse {
         this.address = address;
     }
 
-    public List<CollectionTrip> getCollectionTripList() {
-        return collectionTripList;
+    public List<Vehicle> getVehicleList() {
+        return vehicleList;
     }
 
-    public void setCollectionTripList(List<CollectionTrip> collectionTripList) {
-        this.collectionTripList = collectionTripList;
+    public void setVehicleList(List<Vehicle> vehicleList) {
+        this.vehicleList = vehicleList;
     }
 }

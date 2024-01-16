@@ -1,24 +1,40 @@
 package com.example.pprospsvo.model;
 
+import jakarta.persistence.*;
+
+@Entity
 public class RPContainer {
 
-    private double fullness;
-    private String rpType;
+    @Id
+    @GeneratedValue
+    private int id;
+    private float fullness;
+    @Enumerated(EnumType.STRING)
+    private RPType rpType;
+    @ManyToOne
     private Address address;
 
-    public double getFullness() {
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public float getFullness() {
         return fullness;
     }
 
-    public void setFullness(double fullness) {
+    public void setFullness(float fullness) {
         this.fullness = fullness;
     }
 
-    public String getRpType() {
+    public RPType getRpType() {
         return rpType;
     }
 
-    public void setRpType(String rpType) {
+    public void setRpType(RPType rpType) {
         this.rpType = rpType;
     }
 

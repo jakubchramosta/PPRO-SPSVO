@@ -1,14 +1,32 @@
 package com.example.pprospsvo.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import jakarta.persistence.*;
+
+@Entity
 public class Vehicle {
 
+    @Id
+    @GeneratedValue
+    private int id;
     //RP -> return packaging
     private double capacity;
     private boolean available;
     private String licensePlate;
     private String model;
-    private String rpType;
+    @Enumerated(EnumType.STRING)
+    private RPType rpType;
+    @ManyToOne
+    @JsonBackReference
     private Warehouse warehouse;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public double getCapacity() {
         return capacity;
@@ -42,11 +60,11 @@ public class Vehicle {
         this.model = model;
     }
 
-    public String getRpType() {
+    public RPType getRpType() {
         return rpType;
     }
 
-    public void setRpType(String rpType) {
+    public void setRpType(RPType rpType) {
         this.rpType = rpType;
     }
 

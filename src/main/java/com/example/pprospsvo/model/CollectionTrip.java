@@ -1,14 +1,30 @@
 package com.example.pprospsvo.model;
 
+import jakarta.persistence.*;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+@Entity
 public class CollectionTrip {
 
+    @Id
+    @GeneratedValue
+    private int id;
     private Date tripDate;
+    @OneToOne
     private Vehicle usedVehicle;
+    @ManyToMany
     private List<RPContainer> rpContainerList = new ArrayList<>();
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public Date getTripDate() {
         return tripDate;

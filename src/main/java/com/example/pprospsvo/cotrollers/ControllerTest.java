@@ -17,12 +17,12 @@ public class ControllerTest {
     }
 
     @GetMapping("/")
-    public String index(Model model) {
+    public String index() {
         return "index";
     }
 
     @GetMapping("/dbTest")
-    public String dbTest(Model model){
+    public String dbTest(){
         RPContainer testContainer = new RPContainer();
         testContainer.setRpType(RPType.Plechovky_hliník);
         testContainer.setFullness(100);

@@ -4,11 +4,18 @@
     <meta charset="UTF-8">
     <title>dbTest | SPSVO</title>
     <link rel="stylesheet" th:href="@{/css/theme.css}" />
-    <!--<div th:include="fragments/head"></div>-->
+    <div th:insert="~{/fragments/head}"></div>
 </head>
 <body>
-<h1>done</h1>
-
-</form>
+    <div th:replace="~{fragments/navigationBar}"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-2"></div>
+            <div class="col-8" style="text-align: center;">
+                <br>
+                <h1>DB HAS BEEN TESTED</h1>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

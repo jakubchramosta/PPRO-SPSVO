@@ -77,21 +77,25 @@ public class ControllerTest {
 
 
         RPContainer container1 = new RPContainer();
+        container1.setCapacity(120);
         container1.setFullness(50);
         container1.setRpType(RPType.Plechovky_hliník);
         container1.setAddress(address2);
 
         RPContainer container2 = new RPContainer();
+        container2.setCapacity(150);
         container2.setFullness(60);
         container2.setRpType(RPType.Plastové_lahve);
         container2.setAddress(address3);
 
         RPContainer container3 = new RPContainer();
+        container3.setCapacity(100);
         container3.setFullness(80);
         container3.setRpType(RPType.Skleněné_lahve);
         container3.setAddress(address5);
 
         RPContainer container4 = new RPContainer();
+        container4.setCapacity(150);
         container4.setFullness(70);
         container4.setRpType(RPType.Palety_dřevěné);
         container4.setAddress(address6);

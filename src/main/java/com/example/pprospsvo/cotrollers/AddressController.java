@@ -23,8 +23,8 @@ public class AddressController {
     @GetMapping("/address")
     public String address(Model model) {
 
-        List<Address> addresses = addressService.getAddresses();
-        model.addAttribute("addresses", addresses);
+        List<Address> addressList = addressService.getAddresses();
+        model.addAttribute("addresses", addressList);
         return "address";
     }
 

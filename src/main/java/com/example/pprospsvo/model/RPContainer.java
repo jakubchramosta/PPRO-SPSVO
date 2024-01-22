@@ -8,6 +8,7 @@ public class RPContainer {
     @Id
     @GeneratedValue
     private int id;
+    private float capacity;
     private float fullness;
     @Enumerated(EnumType.STRING)
     private RPType rpType;
@@ -20,6 +21,14 @@ public class RPContainer {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public float getCapacity() {
+        return capacity;
+    }
+
+    public void setCapacity(float capacity) {
+        this.capacity = capacity;
     }
 
     public float getFullness() {

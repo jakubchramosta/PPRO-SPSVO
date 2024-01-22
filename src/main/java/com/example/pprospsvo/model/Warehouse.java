@@ -59,4 +59,17 @@ public class Warehouse {
     public void setVehicleList(List<Vehicle> vehicleList) {
         this.vehicleList = vehicleList;
     }
+
+    public String vehicleListToString() {
+        String list = "";
+
+        for (Vehicle vehicle : vehicleList) {
+
+            list += " | Model: " + vehicle.getModel() +
+                    ", License plate: " + vehicle.getLicensePlate() +
+                    "\n";
+        }
+
+        return list;
+    }
 }

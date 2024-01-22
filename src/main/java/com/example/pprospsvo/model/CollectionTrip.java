@@ -49,4 +49,15 @@ public class CollectionTrip {
     public void setRpContainerList(List<RPContainer> rpContainerList) {
         this.rpContainerList = rpContainerList;
     }
+
+    public String containerListToString() {
+        String list = "";
+
+        for (RPContainer container : rpContainerList) {
+
+            list += " | Address: " + container.getAddress().toString() + "\n";
+        }
+
+        return list;
+    }
 }

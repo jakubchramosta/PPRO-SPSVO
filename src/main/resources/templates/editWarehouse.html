@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Warehouse | SPSVO</title>
+    <div th:insert="~{/fragments/head}"></div>
+</head>
+<body>
+<div th:replace="~{fragments/navigationBar}"></div>
+<div class="row"></div>
+<div class="container">
+    <div class="row">
+        <div class="col-2"></div>
+        <div class="col-8" style="text-align: center;">
+            <h1>Warehouse info</h1>
+
+            <div class="row">
+                <h3>Warehouse:</h3>
+                <form method="post" th:object="${warehouse}">
+                    <div class="row">
+
+                        <div class="form-group col-4" style="margin-top: 15px;">
+                            <div class="form-floating">
+                                <input class="form-control" id="address" placeholder="text" th:field="*{address}">
+                                <label for="address">Address:</label>
+                            </div>
+                        </div>
+
+                        <div class="col-12" th:each="addressInList: ${addressList}" style="text-align: left; padding-left: 18em;">
+                            <input class="form-check-input" type="radio" name="addressRadios" th:id="${addressInList.id}" th:value="${addressInList.id}"
+                                   th:field="*{address}">
+                            <label class="form-check-label" th:for="${addressInList.id}" th:text="${addressInList.id}">
+                            </label>
+                        </div>
+
+                        <div class="form-group col-4" style="margin-top: 15px;">
+                            <div class="form-floating">
+                                <input class="form-control" id="capacity" placeholder="text" th:field="*{capacity}">
+                                <label for="capacity">Capacity:</label>
+                            </div>
+                        </div>
+                        <div class="form-group col-4" style="margin-top: 15px;">
+                            <div class="form-floating">
+                                <input class="form-control" id="fullness" placeholder="text" th:field="*{fullness}">
+                                <label for="fullness">Fullness:</label>
+                            </div>
+                        </div>
+
+                        <input th:href="@{/editWarehouse(id=${warehouse.id})}" class="btn btn-primary" type="submit"
+                               style="margin-top: 15px;" value="Save Address">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

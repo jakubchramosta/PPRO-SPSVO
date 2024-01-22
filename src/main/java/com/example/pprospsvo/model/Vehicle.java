@@ -67,4 +67,8 @@ public class Vehicle {
     public void setWarehouse(Warehouse warehouse) {
         this.warehouse = warehouse;
     }
+
+    public String toString() {
+        return " | Model: " + model + " License plate: " + licensePlate;
+    }
 }

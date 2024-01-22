@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>New Address | SPSVO</title>
+  <div th:insert="~{/fragments/head}"></div>
+</head>
+<body>
+<div th:replace="~{fragments/navigationBar}"></div>
+<div class="row"></div>
+<div class="container">
+  <div class="row">
+    <div class="col-2"></div>
+    <div class="col-8" style="text-align: center;">
+      <h1>Address info</h1>
+
+      <div class="row">
+        <h3>Address:</h3>
+        <form method="post" th:object="${address}">
+          <div class="row">
+
+            <div class="form-group col-4" style="margin-top: 15px;">
+              <div class="form-floating">
+                <input class="form-control" id="postalCode" placeholder="text" th:field="*{postalCode}">
+                <label for="postalCode">Postal code:</label>
+              </div>
+            </div>
+            <div class="form-group col-4" style="margin-top: 15px;">
+              <div class="form-floating">
+                <input class="form-control" id="city" placeholder="text" th:field="*{city}">
+                <label for="city">City:</label>
+              </div>
+            </div>
+            <div class="form-group col-4" style="margin-top: 15px;">
+              <div class="form-floating">
+                <input class="form-control" id="street" placeholder="text" th:field="*{street}">
+                <label for="street">Street:</label>
+              </div>
+            </div>
+
+            <input th:href="@{/newAddress}" class="btn btn-primary" type="submit"
+                   style="margin-top: 15px;" value="Save Address">
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>
+</body>
+</html>

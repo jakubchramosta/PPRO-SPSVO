@@ -3,6 +3,8 @@ package com.example.pprospsvo.model;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 public class Vehicle {
 
@@ -14,8 +16,6 @@ public class Vehicle {
     private boolean available;
     private String licensePlate;
     private String model;
-    @Enumerated(EnumType.STRING)
-    private RPType rpType;
     @ManyToOne
     @JsonBackReference
     private Warehouse warehouse;
@@ -58,14 +58,6 @@ public class Vehicle {
 
     public void setModel(String model) {
         this.model = model;
-    }
-
-    public RPType getRpType() {
-        return rpType;
-    }
-
-    public void setRpType(RPType rpType) {
-        this.rpType = rpType;
     }
 
     public Warehouse getWarehouse() {

@@ -2,12 +2,74 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
-  <title>New Address | SPSVO</title>
-  <link rel="stylesheet" th:href="@{/css/theme.css}" />
+  <title>Addresses | SPSVO</title>
   <div th:insert="~{/fragments/head}"></div>
 </head>
 <body>
   <div th:replace="~{fragments/navigationBar}"></div>
+  <div class="row"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-2"></div>
+      <div class="col-8" style="text-align: center;">
+        <h1>Addresses overview <a href="/newAddress" type="button" class="btn btn-primary"
+                                style="margin-left: 0.8em;"><i class="bi bi-plus-circle"></i></a></h1>
+        <table class="table table-hover">
+          <thead>
+          <tr>
+            <th scope="col">ZIP</th>
+            <th scope="col">City</th>
+            <th scope="col">Street</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+          </tr>
+          </thead>
+          <tbody>
+          <div th:each="address: ${addresses}">
+            <tr>
+              <td th:text="${address.postalCode}"></td>
+              <td th:text="${address.city}"></td>
+              <td th:text="${address.street}"></td>
+              <td>
+                <a th:href="@{/editAddress(id=${address.id})}" class="btn btn-primary"><i
+                        class="bi bi-pencil-fill"></i></a>
+              </td>
+              <td>
+                <button class="btn btn-danger" data-toggle="modal" th:data-target="'#delete_' + ${address.id}">
+                  <i class="bi bi-trash-fill"></i></button>
 
+                <div class="modal fade" th:id="'delete_' + ${address.id}">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title">Confirm</h5>
+                        <button type="button" class="btn-close" data-dismiss="modal"
+                                aria-label="Close">
+                          <span aria-hidden="true"></span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                        <p>Do you want to delete this?</p>
+                      </div>
+                      <div class="modal-footer">
+                        <form action="#" th:action="@{/deleteAddress(id=${address.id})}"
+                              th:method="delete">
+                          <button class="btn btn-danger" type="submit">Delete</button>
+                        </form>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                          Cancel
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </td>
+            </tr>
+          </div>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
 </body>
 </html>

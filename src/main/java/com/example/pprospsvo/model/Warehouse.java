@@ -66,8 +66,7 @@ public class Warehouse {
         for (Vehicle vehicle : vehicleList) {
 
             list += " | Model: " + vehicle.getModel() +
-                    ", License plate: " + vehicle.getLicensePlate() +
-                    "\n";
+                    ", License plate: " + vehicle.getLicensePlate();
         }
 
         return list;

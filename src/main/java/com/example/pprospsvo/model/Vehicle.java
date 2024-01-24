@@ -11,7 +11,6 @@ public class Vehicle {
     @Id
     @GeneratedValue
     private int id;
-    //RP -> return packaging
     private double capacity;
     private boolean available;
     private String licensePlate;

@@ -30,4 +30,9 @@ public class RPContainerService {
     public RPContainer getById(int id) {
         return rpContainerRepo.getReferenceById(id);
     }
+
+    public void deleteById(int id) {
+        //TODO:
+        rpContainerRepo.deleteById(id);
+    }
 }

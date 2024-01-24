@@ -2,8 +2,8 @@ package com.example.pprospsvo.model;
 
 public enum RPType {
 
-    Plastové_lahve,
-    Skleněné_lahve,
-    Plechovky_hliník,
-    Palety_dřevěné
+    Plastic_bottles,
+    Glass_bottles,
+    AL_cans,
+    Wooden_palette
 }

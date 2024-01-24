@@ -54,4 +54,8 @@ public class RPContainer {
     public void setAddress(Address address) {
         this.address = address;
     }
+
+    public String containerToString() {
+        return " | Address: " + address.toString() + " RP type: " + rpType.toString();
+    }
 }

@@ -30,4 +30,9 @@ public class CollectionTripService {
     public CollectionTrip getById(int id) {
         return collectionTripRepo.getReferenceById(id);
     }
+
+    public void deleteById(int id) {
+        //TODO:
+        collectionTripRepo.deleteById(id);
+    }
 }

@@ -35,9 +35,12 @@ public class WarehouseController {
     @GetMapping("/newWarehouse")
     public String newWarehouse(Model model) {
         Warehouse tempWarehouse =  new Warehouse();
-        model.addAttribute(tempWarehouse);
+        List<Address> addressList = addressService.getAddresses();
 
-        return "newAddress";
+        model.addAttribute("warehouse", tempWarehouse);
+        model.addAttribute("addressList", addressList);
+
+        return "newWarehouse";
     }
 
     @PostMapping("/newWarehouse")

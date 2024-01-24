@@ -30,4 +30,9 @@ public class VehicleService {
     public Vehicle getById(int id) {
         return vehicleRepo.getReferenceById(id);
     }
+
+    public void deleteById(int id) {
+        //TODO: delete or modify all collection trips assigned as well
+        vehicleRepo.deleteById(id);
+    }
 }

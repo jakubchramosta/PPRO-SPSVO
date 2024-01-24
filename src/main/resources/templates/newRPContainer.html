@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>New Warehouse | SPSVO</title>
+    <title>Edit RP Container | SPSVO</title>
     <div th:insert="~{/fragments/head}"></div>
 </head>
 <body>
@@ -12,11 +12,11 @@
     <div class="row">
         <div class="col-2"></div>
         <div class="col-8" style="text-align: center;">
-            <h1>Warehouse info</h1>
+            <h1>RP Container info</h1>
 
             <div class="row">
-                <h3>Warehouse:</h3>
-                <form method="post" th:object="${warehouse}">
+                <h3>RP Container:</h3>
+                <form method="post" th:object="${rpContainer}">
                     <div class="row">
 
                         <h4>Address:</h4>
@@ -25,6 +25,16 @@
                                    th:field="*{address}">
                             <label class="form-check-label" th:for="${addressInList.id}" th:text="${addressInList.toString()}">
                             </label>
+                        </div>
+
+                        <div class="col-3" style="margin-top: 10px; text-align: left">
+                            <label class="control-label">RP Type:</label>
+                            <select class="form-select" th:field="*{rpType}">
+                                <option value="Plastic_bottles">Plastic bottles</option>
+                                <option value="Glass_bottles">Glass bottles</option>
+                                <option value="AL_cans">AL cans</option>
+                                <option value="Wooden_palette">Wooden palette</option>
+                            </select>
                         </div>
 
                         <div class="form-group col-4" style="margin-top: 15px;">
@@ -40,7 +50,7 @@
                             </div>
                         </div>
 
-                        <input th:href="@{/editWarehouse(id=${warehouse.id})}" class="btn btn-primary" type="submit"
+                        <input th:href="@{/editRPContainer(id=${rpContainer.id})}" class="btn btn-primary" type="submit"
                                style="margin-top: 15px;" value="Save Address">
                     </div>
                 </form>

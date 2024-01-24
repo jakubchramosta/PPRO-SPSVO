@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>New Vehicle | SPSVO</title>
+    <div th:insert="~{/fragments/head}"></div>
+</head>
+<body>
+<div th:replace="~{fragments/navigationBar}"></div>
+<div class="row"></div>
+<div class="container">
+    <div class="row">
+        <div class="col-2"></div>
+        <div class="col-8" style="text-align: center;">
+            <h1>Vehicle info</h1>
+
+            <div class="row">
+                <h3>Vehicle:</h3>
+                <form method="post" th:object="${vehicle}">
+                    <div class="row">
+
+                        <h4>Warehouse:</h4>
+                        <div class="col-12" th:each="warehouseInList: ${warehouseList}" style="text-align: left; padding-left: 18em;">
+                            <input class="form-check-input" type="radio" name="addressRadios" th:id="${warehouseInList.id}" th:value="${warehouseInList.id}"
+                                   th:field="*{warehouse}">
+                            <label class="form-check-label" th:for="${warehouseInList.id}" th:text="${warehouseInList.address.toString()}">
+                            </label>
+                        </div>
+
+                        <div class="form-group col-4" style="margin-top: 15px;">
+                            <div class="form-floating">
+                                <input class="form-control" id="capacity" placeholder="text" th:field="*{capacity}">
+                                <label for="capacity">Capacity:</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-4" style="margin-top: 15px;">
+                            <div class="form-floating">
+                                <input class="form-control" id="available" placeholder="text" th:field="*{available}">
+                                <label for="available">Available:</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-4" style="margin-top: 15px;">
+                            <div class="form-floating">
+                                <input class="form-control" id="licensePlate" placeholder="text" th:field="*{licensePlate}">
+                                <label for="licensePlate">License Plate:</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-4" style="margin-top: 15px;">
+                            <div class="form-floating">
+                                <input class="form-control" id="model" placeholder="text" th:field="*{model}">
+                                <label for="model">Model:</label>
+                            </div>
+                        </div>
+
+                        <input th:href="@{/editVehicle(id=${vehicle.id})}" class="btn btn-primary" type="submit"
+                               style="margin-top: 15px;" value="Save Address">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

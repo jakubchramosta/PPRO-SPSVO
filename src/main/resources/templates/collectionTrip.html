@@ -28,7 +28,7 @@
           <tbody>
           <div th:each="collectionTrip: ${collectionTripList}">
             <tr>
-              <td th:text="${collectionTrip.tripDate.toString()}"></td>
+              <td th:text="${collectionTrip.tripDate}"></td>
               <td th:text="${collectionTrip.usedVehicle.toString()}"></td>
               <td th:text="${collectionTrip.containerListToString()}"></td>
               <td>

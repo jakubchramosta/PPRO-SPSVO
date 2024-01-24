@@ -2,6 +2,7 @@ package com.example.pprospsvo.model;
 
 import jakarta.persistence.*;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -12,8 +13,9 @@ public class CollectionTrip {
     @Id
     @GeneratedValue
     private int id;
-    private Date tripDate;
-    @OneToOne
+    @Temporal(TemporalType.DATE)
+    private LocalDate tripDate;
+    @ManyToOne
     private Vehicle usedVehicle;
     @ManyToMany
     private List<RPContainer> rpContainerList = new ArrayList<>();
@@ -26,11 +28,11 @@ public class CollectionTrip {
         this.id = id;
     }
 
-    public Date getTripDate() {
+    public LocalDate getTripDate() {
         return tripDate;
     }
 
-    public void setTripDate(Date tripDate) {
+    public void setTripDate(LocalDate tripDate) {
         this.tripDate = tripDate;
     }
 
@@ -55,7 +57,7 @@ public class CollectionTrip {
 
         for (RPContainer container : rpContainerList) {
 
-            list += " | Address: " + container.getAddress().toString() + "\n";
+            list += container.containerToString();
         }
 
         return list;

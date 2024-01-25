@@ -1,0 +1,26 @@
+<form method="post" th:object="${address}">
+    <div class="row">
+
+        <div class="form-group col-4" style="margin-top: 15px;">
+            <div class="form-floating">
+                <input class="form-control" id="postalCode" type="number" th:field="*{postalCode}">
+                <label for="postalCode">Postal code:</label>
+            </div>
+        </div>
+        <div class="form-group col-4" style="margin-top: 15px;">
+            <div class="form-floating">
+                <input class="form-control" id="city" type="text" th:field="*{city}">
+                <label for="city">City:</label>
+            </div>
+        </div>
+        <div class="form-group col-4" style="margin-top: 15px;">
+            <div class="form-floating">
+                <input class="form-control" id="street" type="text" th:field="*{street}">
+                <label for="street">Street:</label>
+            </div>
+        </div>
+
+        <input th:href="@{/newAddress}" class="btn btn-primary" type="submit"
+               style="margin-top: 15px;" value="Save">
+    </div>
+</form>

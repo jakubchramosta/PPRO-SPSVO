@@ -13,35 +13,8 @@
         <div class="col-2"></div>
         <div class="col-8" style="text-align: center;">
             <h1>Address info</h1>
-
             <div class="row">
-                <h3>Address:</h3>
-                <form method="post" th:object="${address}">
-                    <div class="row">
-
-                        <div class="form-group col-4" style="margin-top: 15px;">
-                            <div class="form-floating">
-                                <input class="form-control" id="postalCode" th:field="*{postalCode}">
-                                <label for="postalCode">Postal code:</label>
-                            </div>
-                        </div>
-                        <div class="form-group col-4" style="margin-top: 15px;">
-                            <div class="form-floating">
-                                <input class="form-control" id="city" th:field="*{city}">
-                                <label for="city">City:</label>
-                            </div>
-                        </div>
-                        <div class="form-group col-4" style="margin-top: 15px;">
-                            <div class="form-floating">
-                                <input class="form-control" id="street" th:field="*{street}">
-                                <label for="street">Street:</label>
-                            </div>
-                        </div>
-
-                        <input th:href="@{/editAddress(id=${address.id})}" class="btn btn-primary" type="submit"
-                               style="margin-top: 15px;" value="Save">
-                    </div>
-                </form>
+                <div th:replace="~{fragments/addressForm}"></div>
             </div>
         </div>
     </div>

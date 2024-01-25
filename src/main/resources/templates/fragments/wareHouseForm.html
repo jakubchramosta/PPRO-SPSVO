@@ -1,0 +1,30 @@
+<form method="post" th:object="${warehouse}">
+  <div class="row">
+
+    <h4>Address:</h4>
+    <div class="col-12" th:each="addressInList: ${addressList}" style="text-align: left; padding-left: 18em;">
+      <input class="form-check-input" type="radio" name="addressRadios"
+             th:id="${addressInList.id}" th:value="${addressInList.id}"
+             th:field="*{address}">
+      <label class="form-check-label" th:for="${addressInList.id}"
+             th:text="${addressInList.toString()}">
+      </label>
+    </div>
+
+    <div class="form-group col-4" style="margin-top: 15px;">
+      <div class="form-floating">
+        <input class="form-control" id="capacity" th:field="*{capacity}">
+        <label for="capacity">Capacity:</label>
+      </div>
+    </div>
+    <div class="form-group col-4" style="margin-top: 15px;">
+      <div class="form-floating">
+        <input class="form-control" id="fullness" th:field="*{fullness}">
+        <label for="fullness">Fullness:</label>
+      </div>
+    </div>
+
+    <input th:href="@{/editWarehouse(id=${warehouse.id})}" class="btn btn-primary" type="submit"
+           style="margin-top: 15px;" value="Save">
+  </div>
+</form>

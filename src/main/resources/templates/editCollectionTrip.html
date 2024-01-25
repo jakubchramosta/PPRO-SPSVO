@@ -20,15 +20,19 @@
                     <div class="row">
 
                         <h4>Vehicle used:</h4>
-                        <div class="col-12" th:each="vehicleInList: ${vehicleList}" style="text-align: left; padding-left: 18em;">
-                            <input class="form-check-input" type="radio" name="vehicleRadios" th:id="${vehicleInList.id}" th:value="${vehicleInList.id}"
+                        <div class="col-12" th:each="vehicleInList: ${vehicleList}"
+                             style="text-align: left; padding-left: 18em;">
+                            <input class="form-check-input" type="radio" name="vehicleRadios"
+                                   th:id="${vehicleInList.id}" th:value="${vehicleInList.id}"
                                    th:field="*{usedVehicle}">
-                            <label class="form-check-label" th:for="${vehicleInList.id}" th:text="${vehicleInList.toString()}">
+                            <label class="form-check-label" th:for="${vehicleInList.id}"
+                                   th:text="${vehicleInList.toString()}">
                             </label>
                         </div>
 
                         <label for="containerSelect" class="form-label mt-4">Choose containers</label>
-                        <select class="form-control" th:field="*{rpContainerList}" multiple="multiple" id="containerSelect" th:size="${#lists.size(rpContainerList)}">
+                        <select class="form-control" th:field="*{rpContainerList}" multiple="multiple"
+                                id="containerSelect" th:size="${#lists.size(rpContainerList)}">
                             <option th:each="container : ${rpContainerList}"
                                     th:field="*{rpContainerList}"
                                     th:value="${container.id}"
@@ -44,8 +48,8 @@
                             </div>
                         </div>
 
-                        <input th:href="@{/editCollectionTrip(id=${collectionTrip.id})}" class="btn btn-primary" type="submit"
-                               style="margin-top: 15px;" value="Save">
+                        <input th:href="@{/editCollectionTrip(id=${collectionTrip.id})}" class="btn btn-primary"
+                               type="submit" style="margin-top: 15px;" value="Save">
                     </div>
                 </form>
             </div>

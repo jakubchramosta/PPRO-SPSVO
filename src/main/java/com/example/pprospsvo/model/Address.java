@@ -1,6 +1,7 @@
 package com.example.pprospsvo.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.*;
 
 @Entity
 public class Address {
@@ -9,7 +10,9 @@ public class Address {
     @GeneratedValue
     private int id;
     private int postalCode;
+    @NotNull
     private String city;
+    @NotNull
     private String street;
 
     public int getId() {

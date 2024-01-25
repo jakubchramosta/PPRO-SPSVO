@@ -3,11 +3,9 @@ package com.example.pprospsvo.cotrollers;
 import com.example.pprospsvo.model.*;
 import com.example.pprospsvo.services.*;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import java.time.LocalDate;
-import java.util.Date;
 
 @Controller
 public class ControllerTest {
@@ -26,11 +24,11 @@ public class ControllerTest {
         this.warehouseService = warehouseService;
     }
 
-    @GetMapping("/dbTest")
+    @GetMapping("/dbFill")
     public String dbTest(){
         saveTestData();
 
-        return "dbTest";
+        return "dbFill";
     }
 
     private void saveTestData() {

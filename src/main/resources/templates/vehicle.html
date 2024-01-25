@@ -34,7 +34,7 @@
                         <td th:text="${vehicle.licensePlate}"></td>
                         <td th:text="${vehicle.capacity}"></td>
                         <td th:text="${vehicle.available}"></td>
-                        <td th:text="${vehicle.warehouse.address.toString()}"></td>
+                        <td th:text="${vehicle.getAddressOfWarehouse()}"></td>
                         <td>
                             <a th:href="@{/editVehicle(id=${vehicle.id})}" class="btn btn-primary"><i
                                     class="bi bi-pencil-fill"></i></a>

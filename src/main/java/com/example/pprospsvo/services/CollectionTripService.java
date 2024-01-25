@@ -32,7 +32,7 @@ public class CollectionTripService {
     }
 
     public void deleteById(int id) {
-        //TODO:
+        //Can cause problem if deleted while referenced by other classes
         collectionTripRepo.deleteById(id);
     }
 }

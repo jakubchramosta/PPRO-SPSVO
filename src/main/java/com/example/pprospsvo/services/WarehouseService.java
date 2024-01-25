@@ -35,7 +35,7 @@ public class WarehouseService {
     }
 
     public void deleteById(int id) {
-        //TODO: delete or modify all vehicles assigned as well
+        //Can cause problem if deleted while referenced by other classes
         warehouseRepo.deleteById(id);
     }
 }

@@ -65,10 +65,14 @@ public class Warehouse {
 
         for (Vehicle vehicle : vehicleList) {
 
-            list += " | Model: " + vehicle.getModel() +
-                    ", License plate: " + vehicle.getLicensePlate();
+            list += vehicle.toString();
         }
 
         return list;
+    }
+
+    public String getCity() {
+        if (address != null) return address.getCity();
+        else return "Not found...";
     }
 }

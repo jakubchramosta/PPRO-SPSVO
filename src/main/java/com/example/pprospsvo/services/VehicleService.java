@@ -32,7 +32,7 @@ public class VehicleService {
     }
 
     public void deleteById(int id) {
-        //TODO: delete or modify all collection trips assigned as well
+        //Can cause problem if deleted while referenced by other classes
         vehicleRepo.deleteById(id);
     }
 }

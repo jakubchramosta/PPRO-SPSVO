@@ -13,7 +13,7 @@
 
     <label for="containerSelect" class="form-label mt-4">Choose containers</label>
     <select class="form-control" th:field="*{rpContainerList}" multiple="multiple"
-            id="containerSelect">
+            id="containerSelect" th:size="${#lists.size(rpContainerList)}">
       <option th:each="container : ${rpContainerList}"
               th:field="*{rpContainerList}"
               th:value="${container.id}"

@@ -68,6 +68,12 @@ public class Vehicle {
     }
 
     public String toString() {
-        return " | Model: " + model + " License plate: " + licensePlate;
+        return " | Model: " + model + "; License plate: " + licensePlate;
+    }
+
+    public String getAddressOfWarehouse() {
+        if (warehouse != null) return warehouse.getAddress().toString();
+        else return "Not found...";
+
     }
 }

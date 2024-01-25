@@ -1,14 +1,12 @@
 package com.example.pprospsvo.services;
 
 import com.example.pprospsvo.model.Address;
-import com.example.pprospsvo.model.RPContainer;
 import com.example.pprospsvo.repositories.AddressRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Collections;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class AddressService {
@@ -33,9 +31,7 @@ public class AddressService {
     }
 
     public void deleteById(int id) {
-    //TODO: can cause problem if deleted while referenced by other classes
-        Optional<Address> deletedAddress = addressRepo.findById(id);
-        //List<RPContainer>
+    //Can cause problem if deleted while referenced by other classes
         addressRepo.deleteById(id);
     }
 }

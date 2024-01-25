@@ -29,7 +29,7 @@
                 <tbody>
                 <div th:each="warehouse: ${warehouses}">
                     <tr>
-                        <td th:text="${warehouse.address.city}"></td>
+                        <td th:text="${warehouse.getCity()}"></td>
                         <td th:text="${warehouse.capacity}"></td>
                         <td th:text="${warehouse.fullness}"></td>
                         <td th:text="${warehouse.vehicleListToString()}"></td>

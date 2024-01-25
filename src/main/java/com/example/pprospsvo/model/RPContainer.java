@@ -58,6 +58,16 @@ public class RPContainer {
     }
 
     public String containerToString() {
-        return " | Address: " + address.toString() + " RP type: " + rpType.toString();
+        if (address != null)return " | Address: " + address.toString() + " RP type: " + rpType.toString();
+        else return "Not found...";
+    }
+
+    public String containerAddressToString() {
+        if (address != null) return address.toString();
+        else return "Not found...";
+    }
+
+    public void removeAddress() {
+        address = null;
     }
 }

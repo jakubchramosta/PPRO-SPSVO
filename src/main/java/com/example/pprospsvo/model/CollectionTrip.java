@@ -56,10 +56,22 @@ public class CollectionTrip {
         String list = "";
 
         for (RPContainer container : rpContainerList) {
-
             list += container.containerToString();
         }
 
         return list;
+    }
+
+    public void removeRPContainer(RPContainer container) {
+        rpContainerList.remove(container);
+    }
+
+    public void removeVehicle() {
+        usedVehicle = null;
+    }
+
+    public String usedVehicleToString() {
+        if (usedVehicle != null) return usedVehicle.toString();
+        else return "Not found...";
     }
 }

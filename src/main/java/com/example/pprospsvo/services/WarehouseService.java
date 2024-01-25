@@ -1,6 +1,6 @@
 package com.example.pprospsvo.services;
 
-import com.example.pprospsvo.model.Address;
+import com.example.pprospsvo.model.Vehicle;
 import com.example.pprospsvo.model.Warehouse;
 import com.example.pprospsvo.repositories.VehicleRepo;
 import com.example.pprospsvo.repositories.WarehouseRepo;
@@ -35,7 +35,12 @@ public class WarehouseService {
     }
 
     public void deleteById(int id) {
-        //Can cause problem if deleted while referenced by other classes
+        Warehouse deletedWarehouse = warehouseRepo.getReferenceById(id);
+        List<Vehicle> vehicleList = vehicleRepo.findVehiclesByWarehouse(deletedWarehouse);
+
+        for (Vehicle vehicle : vehicleList) {
+            vehicle.removeWarehouse();
+        }
         warehouseRepo.deleteById(id);
     }
 }

@@ -1,7 +1,9 @@
 package com.example.pprospsvo.services;
 
+import com.example.pprospsvo.model.CollectionTrip;
 import com.example.pprospsvo.model.RPContainer;
 import com.example.pprospsvo.model.Warehouse;
+import com.example.pprospsvo.repositories.CollectionTripRepo;
 import com.example.pprospsvo.repositories.RPContainerRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,10 +15,12 @@ import java.util.List;
 public class RPContainerService {
 
     private RPContainerRepo rpContainerRepo;
+    private CollectionTripRepo collectionTripRepo;
 
     @Autowired
-    public RPContainerService(RPContainerRepo rpContainerRepo) {
+    public RPContainerService(RPContainerRepo rpContainerRepo, CollectionTripRepo collectionTripRepo) {
         this.rpContainerRepo = rpContainerRepo;
+        this.collectionTripRepo = collectionTripRepo;
     }
 
     public void add(RPContainer newContainer) {
@@ -32,7 +36,14 @@ public class RPContainerService {
     }
 
     public void deleteById(int id) {
-        //Can cause problem if deleted while referenced by other classes
+        RPContainer deletedCont = rpContainerRepo.getReferenceById(id);
+        List<CollectionTrip> collectionTripList = collectionTripRepo.findCollectionTripsByRpContainerListContaining(deletedCont);
+
+        for (CollectionTrip trip : collectionTripList) {
+            trip.removeRPContainer(deletedCont);
+            collectionTripRepo.save(trip);
+        }
+
         rpContainerRepo.deleteById(id);
     }
 }

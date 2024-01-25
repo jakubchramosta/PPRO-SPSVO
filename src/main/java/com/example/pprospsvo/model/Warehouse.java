@@ -75,4 +75,12 @@ public class Warehouse {
         if (address != null) return address.getCity();
         else return "Not found...";
     }
+
+    public void removeVehicle(Vehicle vehicle) {
+        vehicleList.remove(vehicle);
+    }
+
+    public void removeAddress() {
+        address = null;
+    }
 }

@@ -72,8 +72,12 @@ public class Vehicle {
     }
 
     public String getAddressOfWarehouse() {
-        if (warehouse != null) return warehouse.getAddress().toString();
+        if (warehouse != null && warehouse.getAddress() != null) return warehouse.getAddress().toString();
         else return "Not found...";
 
+    }
+
+    public void removeWarehouse() {
+        warehouse = null;
     }
 }

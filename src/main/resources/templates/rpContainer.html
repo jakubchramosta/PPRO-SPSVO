@@ -29,7 +29,7 @@
                 <tbody>
                 <div th:each="container: ${rpContainerList}">
                     <tr>
-                        <td th:text="${container.address.toString()}"></td>
+                        <td th:text="${container.containerAddressToString()}"></td>
                         <td th:text="${container.capacity}"></td>
                         <td th:text="${container.fullness}"></td>
                         <td th:text="${container.rpType}"></td>

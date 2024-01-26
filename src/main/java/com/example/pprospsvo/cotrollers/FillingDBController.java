@@ -31,6 +31,7 @@ public class FillingDBController {
         return "dbFill";
     }
 
+    //Method used to fill database with testing data
     private void saveTestData() {
 
         Address address1 = new Address();
